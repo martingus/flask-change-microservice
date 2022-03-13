@@ -37,6 +37,15 @@ def changeroute(dollar, cents):
     amount = f"{dollar}.{cents}"
     result = change(float(amount))
     return jsonify(result)
+    
+@app.route('/changex2/<dollar>/<cents>')
+def changeroutex2(dollar, cents):
+    dollarx2 = str(int(dollar)*2)
+    centsx2 = str(int(cents)*2)
+    amount = f"{dollarx2}.{centsx2}"
+    result = change(float(amount))
+    print(f"Make Change for {dollar}.{cents}. The change is doubled, to {dollarx2}.{centsx2}.")   
+    return jsonify(result)
 
 
 if __name__ == '__main__':
